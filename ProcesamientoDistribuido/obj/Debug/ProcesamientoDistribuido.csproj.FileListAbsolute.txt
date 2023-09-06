@@ -1,0 +1,10 @@
+C:\Users\nivek\source\repos\ProcesamientoDistribuido\ProcesamientoDistribuido\bin\Debug\ProcesamientoDistribuido.exe.config
+C:\Users\nivek\source\repos\ProcesamientoDistribuido\ProcesamientoDistribuido\bin\Debug\ProcesamientoDistribuido.exe
+C:\Users\nivek\source\repos\ProcesamientoDistribuido\ProcesamientoDistribuido\bin\Debug\ProcesamientoDistribuido.pdb
+C:\Users\nivek\source\repos\ProcesamientoDistribuido\ProcesamientoDistribuido\obj\Debug\ProcesamientoDistribuido.csproj.AssemblyReference.cache
+C:\Users\nivek\source\repos\ProcesamientoDistribuido\ProcesamientoDistribuido\obj\Debug\ProcesamientoDistribuido.Form1.resources
+C:\Users\nivek\source\repos\ProcesamientoDistribuido\ProcesamientoDistribuido\obj\Debug\ProcesamientoDistribuido.Properties.Resources.resources
+C:\Users\nivek\source\repos\ProcesamientoDistribuido\ProcesamientoDistribuido\obj\Debug\ProcesamientoDistribuido.csproj.GenerateResource.cache
+C:\Users\nivek\source\repos\ProcesamientoDistribuido\ProcesamientoDistribuido\obj\Debug\ProcesamientoDistribuido.csproj.CoreCompileInputs.cache
+C:\Users\nivek\source\repos\ProcesamientoDistribuido\ProcesamientoDistribuido\obj\Debug\ProcesamientoDistribuido.exe
+C:\Users\nivek\source\repos\ProcesamientoDistribuido\ProcesamientoDistribuido\obj\Debug\ProcesamientoDistribuido.pdb
