@@ -16,13 +16,13 @@ namespace ProcesamientoDistribuido
         {
             string[] nombres = { "Juan", "María", "Pedro", "Ana", "Luis" };
             string[] apellidos = { "Gómez", "Pérez", "Martínez", "López", "Rodríguez" };
+            string[] estados = { "SINALOA", "SONORA", "BC", "DURANGO" };
 
-            double credito = 155.55;
-            double deuda = 15.55;
-            string estado = "Sinaloa";
+            double credito;
+            double deuda;
             char vigencia = 'A';
 
-            string nombreAleatorio, apellidoAleatorio;
+            string nombreAleatorio, apellidoAleatorio, estadoAleatorio;
 
             Random random = new Random();
 
@@ -31,48 +31,52 @@ namespace ProcesamientoDistribuido
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                try
-                {
-                    connection.Open();
+                for(int i=0; i<=20000; i++) { 
+                        try
+                        {
+                            connection.Open();
 
-                    nombreAleatorio = nombres[random.Next(nombres.Length)];
-                    apellidoAleatorio = apellidos[random.Next(apellidos.Length)];
+                            estadoAleatorio = estados[random.Next(estados.Length)];
+                            nombreAleatorio = nombres[random.Next(nombres.Length)];
+                            apellidoAleatorio = apellidos[random.Next(apellidos.Length)];
+                            credito = random.NextDouble() * (5000 - 1000) + 1000;
+                            deuda = credito * (random.NextDouble()/10);
                     
 
-                    string query = "INSERT CLIENTES VALUES (@Nombre, @Credito, @Deuda, @Estado, @Vigencia)";
+                            string query = "INSERT CLIENTES VALUES (@Nombre, @Credito, @Deuda, @Estado, @Vigencia)";
 
-                    using (SqlCommand cmd = new SqlCommand(query, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@Nombre", nombreAleatorio + " " + apellidoAleatorio);
-                        cmd.Parameters.AddWithValue("@Credito", credito);
-                        cmd.Parameters.AddWithValue("@Deuda", deuda);
-                        cmd.Parameters.AddWithValue("@Estado", estado);
-                        cmd.Parameters.AddWithValue("@Vigencia", vigencia);
+                            using (SqlCommand cmd = new SqlCommand(query, connection))
+                            {
+                                cmd.Parameters.AddWithValue("@Nombre", nombreAleatorio + " " + apellidoAleatorio);
+                                cmd.Parameters.AddWithValue("@Credito", credito);
+                                cmd.Parameters.AddWithValue("@Deuda", deuda);
+                                cmd.Parameters.AddWithValue("@Estado", estadoAleatorio);
+                                cmd.Parameters.AddWithValue("@Vigencia", vigencia);
 
 
 
-                        int rowsAffected = cmd.ExecuteNonQuery();
+                                int rowsAffected = cmd.ExecuteNonQuery();
 
-                        if (rowsAffected > 0)
-                        {
-                            MessageBox.Show("Inserción exitosa.");
+                                if (rowsAffected > 0)
+                                {
+                            
+                                }
+                                else
+                                {
+                                    MessageBox.Show("No se insertaron filas.");
+                                }
+                            }
                         }
-                        else
+                        catch (Exception ex)
                         {
-                            MessageBox.Show("No se insertaron filas.");
+                            MessageBox.Show("Error al insertar datos: " + ex.Message);
+                        }
+                        finally
+                        {
+                            connection.Close();
                         }
                     }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al insertar datos: " + ex.Message);
-                }
-                finally
-                {
-                    connection.Close();
-                }
-
-                
+                    MessageBox.Show("Inserción exitosa.");
             }
 
         }
